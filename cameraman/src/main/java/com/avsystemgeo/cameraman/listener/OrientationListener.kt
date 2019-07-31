@@ -5,6 +5,8 @@ import android.content.Context
 import android.view.animation.Animation
 import android.view.OrientationEventListener
 
+import com.github.rongi.rotate_layout.layout.RotateLayout
+
 /**
  * @author Lucas Cota
  * @since 31/07/2019 10:04
@@ -16,7 +18,8 @@ class OrientationListener(
     private val landscapeAnim: Animation,
     private val reversePortraitAnim: Animation,
     private val reverseLandscapeAnim: Animation,
-    private val views: Array<View>
+    private val views: Array<View>,
+    private val rotateLayouts: Array<RotateLayout> = emptyArray()
 ) : OrientationEventListener(context) {
 
     companion object {
@@ -36,9 +39,10 @@ class OrientationListener(
                 rotation = ROTATION_O
 
                 views.forEach { view ->
-                    //view.rotation = 0f
                     view.startAnimation(portraitAnim)
                 }
+
+                rotateLayouts.forEach { it.angle = 0 }
             }
 
             // REVERSE PORTRAIT
@@ -46,9 +50,10 @@ class OrientationListener(
                 rotation = ROTATION_180
 
                 views.forEach { view ->
-                    //view.rotation = -180f
                     view.startAnimation(reversePortraitAnim)
                 }
+
+                rotateLayouts.forEach { it.angle = -180 }
             }
 
             // REVERSE LANDSCAPE
@@ -56,9 +61,10 @@ class OrientationListener(
                 rotation = ROTATION_270
 
                 views.forEach { view ->
-                    //view.rotation = -90f
                     view.startAnimation(reverseLandscapeAnim)
                 }
+
+                rotateLayouts.forEach { it.angle = 90 }
             }
 
             // LANDSCAPE
@@ -66,9 +72,10 @@ class OrientationListener(
                 rotation = ROTATION_90
 
                 views.forEach { view ->
-                    //view.rotation = 90f
                     view.startAnimation(landscapeAnim)
                 }
+
+                rotateLayouts.forEach { it.angle = -90 }
             }
         }
     }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.graphics.Bitmap
 import android.widget.EditText
 import androidx.core.view.isVisible
-import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AlertDialog
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
@@ -148,7 +147,8 @@ class CameraActivity : AppCompatActivity(), GeolocationListener, DateListener {
             landscapeAnimation,
             reversePortraitAnim,
             reverseLandscapeAnim,
-            arrayOf(flashSwitch, switchCamera)
+            arrayOf(flashSwitch, switchCamera),
+            arrayOf(coordinatesView)
         )
     }
 

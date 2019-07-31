@@ -39,6 +39,8 @@ dependencies {
 
     // Camera
     implementation 'io.fotoapparat:fotoapparat:2.7.0'
+
+    implementation 'rongi.rotate-layout:rotate-layout:3.0.0'
 }
 
 repositories {

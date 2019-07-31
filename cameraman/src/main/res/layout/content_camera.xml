@@ -33,98 +33,104 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
+    <com.github.rongi.rotate_layout.layout.RotateLayout
         android:id="@+id/coordinatesView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/camera_coordinates_background"
-        android:padding="@dimen/camera_margin_padding"
         android:visibility="gone"
+        app:angle="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible">
 
-        <TableRow>
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/camera_coordinates_background"
+            android:padding="@dimen/camera_margin_padding">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/camera_utm"
-                android:textColor="@color/camera_red"
-                android:textSize="@dimen/camera_coordinates_text_size"
-                android:textStyle="bold" />
+            <TableRow>
 
-            <TextView
-                android:id="@+id/txtUtm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/camera_red"
-                android:textSize="@dimen/camera_coordinates_text_size"
-                android:textStyle="bold"
-                tools:text="23K" />
-        </TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/camera_utm"
+                    android:textColor="@color/camera_red"
+                    android:textSize="@dimen/camera_coordinates_text_size"
+                    android:textStyle="bold" />
 
-        <TableRow>
+                <TextView
+                    android:id="@+id/txtUtm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/camera_red"
+                    android:textSize="@dimen/camera_coordinates_text_size"
+                    android:textStyle="bold"
+                    tools:text="23K" />
+            </TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/camera_utm_x"
-                android:textColor="@color/camera_red"
-                android:textSize="@dimen/camera_coordinates_text_size"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+            <TableRow>
 
-            <TextView
-                android:id="@+id/txtUtmX"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/camera_red"
-                android:textSize="@dimen/camera_coordinates_text_size"
-                android:textStyle="bold"
-                tools:text="23K" />
-        </TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/camera_utm_x"
+                    android:textColor="@color/camera_red"
+                    android:textSize="@dimen/camera_coordinates_text_size"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
-        <TableRow>
+                <TextView
+                    android:id="@+id/txtUtmX"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/camera_red"
+                    android:textSize="@dimen/camera_coordinates_text_size"
+                    android:textStyle="bold"
+                    tools:text="23K" />
+            </TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/camera_utm_y"
-                android:textColor="@color/camera_red"
-                android:textSize="@dimen/camera_coordinates_text_size"
-                android:textStyle="bold" />
+            <TableRow>
 
-            <TextView
-                android:id="@+id/txtUtmY"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/camera_red"
-                android:textSize="@dimen/camera_coordinates_text_size"
-                android:textStyle="bold"
-                tools:text="23K" />
-        </TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/camera_utm_y"
+                    android:textColor="@color/camera_red"
+                    android:textSize="@dimen/camera_coordinates_text_size"
+                    android:textStyle="bold" />
 
-        <TableRow>
+                <TextView
+                    android:id="@+id/txtUtmY"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/camera_red"
+                    android:textSize="@dimen/camera_coordinates_text_size"
+                    android:textStyle="bold"
+                    tools:text="23K" />
+            </TableRow>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/camera_date"
-                android:textColor="@color/camera_red"
-                android:textSize="@dimen/camera_coordinates_text_size"
-                android:textStyle="bold" />
+            <TableRow>
 
-            <TextView
-                android:id="@+id/txtDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/camera_red"
-                android:textSize="@dimen/camera_coordinates_text_size"
-                android:textStyle="bold"
-                tools:text="14/06/2019 00:00:00" />
-        </TableRow>
-    </TableLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/camera_date"
+                    android:textColor="@color/camera_red"
+                    android:textSize="@dimen/camera_coordinates_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/camera_red"
+                    android:textSize="@dimen/camera_coordinates_text_size"
+                    android:textStyle="bold"
+                    tools:text="14/06/2019 00:00:00" />
+            </TableRow>
+        </TableLayout>
+    </com.github.rongi.rotate_layout.layout.RotateLayout>
 
     <LinearLayout
         android:id="@+id/actionView"
