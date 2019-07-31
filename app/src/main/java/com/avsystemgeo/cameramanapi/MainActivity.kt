@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), CameramanCallback {
             Cameraman(
                 this, CameramanSettings(
                     savePath = "${Environment.getExternalStorageDirectory()}/${getString(R.string.app_name)}",
-                    enableCoordinates = false,
+                    enableCoordinates = true,
                     enableDescription = true,
                     datePattern = "yyyy/MM/dd HH:mm:ss"
                 )
