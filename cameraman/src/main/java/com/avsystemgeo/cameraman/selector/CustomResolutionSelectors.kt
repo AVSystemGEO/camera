@@ -1,11 +1,15 @@
 package com.avsystemgeo.cameraman.selector
 
+import io.fotoapparat.selector.lowestResolution
+import io.fotoapparat.selector.highestResolution
 import io.fotoapparat.selector.ResolutionSelector
 
 /**
  * @author Lucas Cota
  * @since 13/06/2019 14:53
  */
+
+fun bestResolution(): ResolutionSelector = highestResolution()
 
 fun highResolution(): ResolutionSelector = {
     val resolutions = this.sortedByDescending { it.area }
@@ -32,3 +36,5 @@ fun lowResolution(): ResolutionSelector = {
 
     resolutions[index]
 }
+
+fun sadResolution(): ResolutionSelector = lowestResolution()
