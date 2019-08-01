@@ -14,6 +14,7 @@ import com.avsystemgeo.cameraman.selector.mediumResolution
 data class CameramanSettings(
     var savePath: String,
     var resolutionSelector: ResolutionSelector = mediumResolution(),
+    var jpegQuality: Int = 90,
     var enableFocusView: Boolean = false,
     var enableCoordinates: Boolean = false,
     var enableDescription: Boolean = false,
