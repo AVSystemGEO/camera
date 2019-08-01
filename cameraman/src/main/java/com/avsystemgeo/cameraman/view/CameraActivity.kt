@@ -430,8 +430,9 @@ class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener
     private fun setCoordinatesViewRotation(angle: Int) {
         when {
             loadingCoordinatesView.isVisible -> loadingCoordinatesView.angle = angle
-            else -> coordinatesView.angle = angle
         }
+
+        coordinatesView.angle = angle
     }
 
 
