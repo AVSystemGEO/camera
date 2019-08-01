@@ -18,8 +18,8 @@ import io.fotoapparat.result.BitmapPhoto
  * @since 21/06/2019 13:38
  */
 
-fun Bitmap.saveBitmapToJPEG(file: File): Boolean {
-    return compress(Bitmap.CompressFormat.JPEG, 90, FileOutputStream(file))
+fun Bitmap.saveBitmapToJPEG(file: File, jpegQuality: Int): Boolean {
+    return compress(Bitmap.CompressFormat.JPEG, jpegQuality, FileOutputStream(file))
 }
 
 fun Bitmap.rotateBitmap(rotationDegrees: Float): Bitmap {

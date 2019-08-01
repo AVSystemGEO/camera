@@ -367,7 +367,7 @@ class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener
 
             val picture = settings.savePath.saveFileWithTimestamp(".jpg")
 
-            bitmap.saveBitmapToJPEG(picture)
+            bitmap.saveBitmapToJPEG(picture, settings.jpegQuality)
 
             finish()
 
