@@ -45,7 +45,7 @@ import kotlinx.android.synthetic.main.content_camera_preview.*
  * @since 11/06/2019 16:36
  */
 
-class CameraActivity : AppCompatActivity(), GeolocationListener, DateListener {
+class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener, GeolocationListener, DateListener {
 
     companion object {
         private val PERMISSIONS = arrayListOf(
@@ -148,8 +148,28 @@ class CameraActivity : AppCompatActivity(), GeolocationListener, DateListener {
             reversePortraitAnim,
             reverseLandscapeAnim,
             arrayOf(flashSwitch, switchCamera),
-            arrayOf(coordinatesView)
+            this
         )
+    }
+
+    override fun onRotationChanged(rotation: Int) {
+        when (rotation) {
+            OrientationListener.ROTATION_O -> {
+                setCoordinatesViewRotation(0)
+            }
+
+            OrientationListener.ROTATION_180 -> {
+                setCoordinatesViewRotation(-180)
+            }
+
+            OrientationListener.ROTATION_270 -> {
+                setCoordinatesViewRotation(90)
+            }
+
+            OrientationListener.ROTATION_90 -> {
+                setCoordinatesViewRotation(-90)
+            }
+        }
     }
 
 
@@ -399,9 +419,18 @@ class CameraActivity : AppCompatActivity(), GeolocationListener, DateListener {
     }
 
     private fun checkCoordinatesView() {
-        if (loadingCoordinatesView.isVisible) {
-            loadingCoordinatesView.visible(false)
-            coordinatesView.visible(true)
+        when {
+            loadingCoordinatesView.isVisible -> {
+                loadingCoordinatesView.visible(false)
+                coordinatesView.visible(true)
+            }
+        }
+    }
+
+    private fun setCoordinatesViewRotation(angle: Int) {
+        when {
+            loadingCoordinatesView.isVisible -> loadingCoordinatesView.angle = angle
+            else -> coordinatesView.angle = angle
         }
     }
 
@@ -414,9 +443,7 @@ class CameraActivity : AppCompatActivity(), GeolocationListener, DateListener {
 
     // Permissions
     private fun checkPermissions() {
-        if (settings.enableCoordinates) PERMISSIONS.addAll(
-            PERMISSIONS_COORDINATES
-        )
+        if (settings.enableCoordinates) PERMISSIONS.addAll(PERMISSIONS_COORDINATES)
 
         permissionsDelegate = PermissionsDelegate(
             this,

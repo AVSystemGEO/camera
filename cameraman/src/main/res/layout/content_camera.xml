@@ -18,20 +18,27 @@
             android:layout_height="match_parent" />
     </io.fotoapparat.view.CameraView>
 
-    <TextView
+    <com.github.rongi.rotate_layout.layout.RotateLayout
         android:id="@+id/loadingCoordinatesView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/camera_coordinates_background"
-        android:orientation="vertical"
-        android:padding="@dimen/camera_margin_padding"
-        android:text="@string/camera_loading_coordinates"
-        android:textColor="@color/camera_red"
-        android:textSize="@dimen/camera_coordinates_text_size"
-        android:textStyle="bold"
         android:visibility="gone"
+        app:angle="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/camera_coordinates_background"
+            android:orientation="vertical"
+            android:padding="@dimen/camera_margin_padding"
+            android:text="@string/camera_loading_coordinates"
+            android:textColor="@color/camera_red"
+            android:textSize="@dimen/camera_coordinates_text_size"
+            android:textStyle="bold" />
+    </com.github.rongi.rotate_layout.layout.RotateLayout>
 
     <com.github.rongi.rotate_layout.layout.RotateLayout
         android:id="@+id/coordinatesView"
