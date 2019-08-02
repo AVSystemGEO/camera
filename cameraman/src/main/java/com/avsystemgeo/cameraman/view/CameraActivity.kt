@@ -107,6 +107,8 @@ class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener
 
         setContentView(R.layout.activity_camera)
 
+        supportActionBar?.hide()
+
         configureOrientation()
 
         checkPermissions()
