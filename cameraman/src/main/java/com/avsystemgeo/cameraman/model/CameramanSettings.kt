@@ -2,9 +2,7 @@ package com.avsystemgeo.cameraman.model
 
 import java.io.Serializable
 
-import io.fotoapparat.selector.ResolutionSelector
-
-import com.avsystemgeo.cameraman.selector.mediumResolution
+import com.avsystemgeo.cameraman.selector.ResolutionQuality
 
 /**
  * @author Lucas Cota
@@ -13,7 +11,7 @@ import com.avsystemgeo.cameraman.selector.mediumResolution
 
 data class CameramanSettings(
     var savePath: String,
-    var resolutionSelector: ResolutionSelector = mediumResolution(),
+    var resolutionSelector: ResolutionQuality = ResolutionQuality.MEDIUM,
     var jpegQuality: Int = 90,
     var enableFocusView: Boolean = false,
     var enableCoordinates: Boolean = false,

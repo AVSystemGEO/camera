@@ -31,6 +31,7 @@ import com.avsystemgeo.cameraman.model.CameramanSettings
 import com.avsystemgeo.cameraman.bitmap.saveBitmapToJPEG
 import com.avsystemgeo.cameraman.listener.CameramanCallback
 import com.avsystemgeo.cameraman.geo.model.GeolocationOutput
+import com.avsystemgeo.cameraman.selector.resolutionSelector
 import com.avsystemgeo.cameraman.listener.OrientationListener
 import com.avsystemgeo.cameraman.permission.PermissionsDelegate
 import com.avsystemgeo.cameraman.geo.listener.GeolocationListener
@@ -213,7 +214,7 @@ class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener
 
         configuration = CameraConfiguration(
             flashMode = off(),
-            pictureResolution = settings.resolutionSelector
+            pictureResolution = resolutionSelector(settings.resolutionSelector)
         )
 
         fotoapparat = Fotoapparat(

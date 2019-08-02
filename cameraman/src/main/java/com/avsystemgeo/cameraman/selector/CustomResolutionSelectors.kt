@@ -9,9 +9,25 @@ import io.fotoapparat.selector.ResolutionSelector
  * @since 13/06/2019 14:53
  */
 
-fun bestResolution(): ResolutionSelector = highestResolution()
+enum class ResolutionQuality {
+    BEST,
+    HIGH,
+    MEDIUM,
+    LOW,
+    SAD
+}
 
-fun highResolution(): ResolutionSelector = {
+fun resolutionSelector(quality: ResolutionQuality): ResolutionSelector {
+    return when (quality) {
+        ResolutionQuality.BEST -> highestResolution()
+        ResolutionQuality.HIGH -> highResolution()
+        ResolutionQuality.MEDIUM -> mediumResolution()
+        ResolutionQuality.LOW -> lowResolution()
+        ResolutionQuality.SAD -> lowestResolution()
+    }
+}
+
+private fun highResolution(): ResolutionSelector = {
     val resolutions = this.sortedByDescending { it.area }
 
     val half = resolutions.size / 2
@@ -20,7 +36,7 @@ fun highResolution(): ResolutionSelector = {
     resolutions[index]
 }
 
-fun mediumResolution(): ResolutionSelector = {
+private fun mediumResolution(): ResolutionSelector = {
     val resolutions = this.sortedByDescending { it.area }
 
     val index = resolutions.size / 2
@@ -28,7 +44,7 @@ fun mediumResolution(): ResolutionSelector = {
     resolutions[index]
 }
 
-fun lowResolution(): ResolutionSelector = {
+private fun lowResolution(): ResolutionSelector = {
     val resolutions = this.sortedByDescending { it.area }
 
     val half = resolutions.size / 2
@@ -36,5 +52,3 @@ fun lowResolution(): ResolutionSelector = {
 
     resolutions[index]
 }
-
-fun sadResolution(): ResolutionSelector = lowestResolution()
