@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.appcompat.app.AlertDialog
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 
 import io.fotoapparat.selector.*
 import io.fotoapparat.Fotoapparat
@@ -156,21 +157,46 @@ class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener
     }
 
     override fun onRotationChanged(rotation: Int) {
+        val params = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.WRAP_CONTENT,
+            ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+
         when (rotation) {
             OrientationListener.ROTATION_O -> {
-                setCoordinatesViewRotation(0)
+                params.apply {
+                    topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+                    startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+                }
+
+                setCoordinatesViewRotation(0, params)
             }
 
             OrientationListener.ROTATION_180 -> {
-                setCoordinatesViewRotation(-180)
+                params.apply {
+                    topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+                    startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+                }
+
+                setCoordinatesViewRotation(-180, params)
             }
 
             OrientationListener.ROTATION_270 -> {
-                setCoordinatesViewRotation(90)
+                params.apply {
+                    topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+                    startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+                }
+
+                setCoordinatesViewRotation(90, params)
             }
 
             OrientationListener.ROTATION_90 -> {
-                setCoordinatesViewRotation(-90)
+                params.apply {
+                    topToTop = ConstraintLayout.LayoutParams.PARENT_ID
+                    endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+                }
+
+                setCoordinatesViewRotation(-90, params)
             }
         }
     }
@@ -430,12 +456,16 @@ class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener
         }
     }
 
-    private fun setCoordinatesViewRotation(angle: Int) {
+    private fun setCoordinatesViewRotation(angle: Int, params: ConstraintLayout.LayoutParams) {
         when {
-            loadingCoordinatesView.isVisible -> loadingCoordinatesView.angle = angle
+            loadingCoordinatesView.isVisible -> {
+                loadingCoordinatesView.angle = angle
+                loadingCoordinatesView.layoutParams = params
+            }
         }
 
         coordinatesView.angle = angle
+        coordinatesView.layoutParams = params
     }
 
 
