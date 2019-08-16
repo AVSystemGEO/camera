@@ -15,6 +15,7 @@ data class CameramanSettings(
     var jpegQuality: Int = 90,
     var enableFocusView: Boolean = false,
     var enableCoordinates: Boolean = false,
+    var enableAutoCoordinatesInDebugMode: Boolean = false,
     var enableDescription: Boolean = false,
     var datePattern: String,
     var descriptionPrefix: String = ""

@@ -227,7 +227,7 @@ class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener
         fotoapparat.start()
         dateHandler.scheduledAtFixedRate()
 
-        if (settings.enableCoordinates) geolocation?.requestLocationUpdates()
+        if (settings.enableCoordinates) geolocation?.requestLocationUpdates(settings.enableAutoCoordinatesInDebugMode)
     }
 
     private fun stopFotoapparat() {
@@ -289,7 +289,13 @@ class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener
                         }
                     },
 
-                    cameraConfiguration = configuration
+                    cameraConfiguration = when {
+                        isBackCamera -> configuration
+
+                        else -> configuration.copy(
+                            pictureResolution = highestResolution()
+                        )
+                    }
                 )
             } else {
                 parentView.snackbar(getString(R.string.camera_no_switch_available))

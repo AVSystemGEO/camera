@@ -7,6 +7,7 @@ import android.annotation.SuppressLint
 import android.location.LocationManager
 import android.location.LocationListener
 
+import com.avsystemgeo.cameraman.BuildConfig
 import com.avsystemgeo.cameraman.geo.converter.LatLon2UTM
 import com.avsystemgeo.cameraman.geo.model.GeolocationOutput
 import com.avsystemgeo.cameraman.geo.listener.GeolocationListener
@@ -28,8 +29,20 @@ class Geolocation(context: Context, private var listener: GeolocationListener) :
         context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
     }
 
-    fun requestLocationUpdates() {
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, TIME_INTERVAL, DISTANCE_RADIUS, this)
+    fun requestLocationUpdates(autoCoordinatesInDebugMode: Boolean) {
+        if (BuildConfig.DEBUG && autoCoordinatesInDebugMode) {
+            listener.onLocationChanged(
+                GeolocationOutput(
+                    -19.918746486121794,
+                    -43.927838086946906,
+                    "23K",
+                    "612216,24",
+                    "9999642,26"
+                )
+            )
+        } else {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, TIME_INTERVAL, DISTANCE_RADIUS, this)
+        }
     }
 
     fun removeLocationUpdates() {
