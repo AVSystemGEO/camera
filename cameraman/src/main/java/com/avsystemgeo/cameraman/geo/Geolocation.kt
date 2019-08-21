@@ -18,7 +18,7 @@ import com.avsystemgeo.cameraman.geo.listener.GeolocationListener
  */
 
 @SuppressLint("MissingPermission")
-class Geolocation(context: Context, private var listener: GeolocationListener) : LocationListener {
+internal class Geolocation(context: Context, private var listener: GeolocationListener) : LocationListener {
 
     companion object {
         private const val TIME_INTERVAL: Long = 30000 // Miliseconds

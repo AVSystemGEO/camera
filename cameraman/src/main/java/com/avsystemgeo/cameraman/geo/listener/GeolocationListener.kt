@@ -9,7 +9,7 @@ import com.avsystemgeo.cameraman.geo.model.GeolocationOutput
  * @since 18/06/2019 14:48
  */
 
-interface GeolocationListener : Serializable {
+internal interface GeolocationListener : Serializable {
 
     fun onLocationChanged(output: GeolocationOutput)
 }

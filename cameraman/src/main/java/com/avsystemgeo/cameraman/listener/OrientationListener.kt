@@ -10,7 +10,7 @@ import android.view.OrientationEventListener
  * @since 31/07/2019 10:04
  */
 
-class OrientationListener(
+internal class OrientationListener(
     context: Context,
     private val portraitAnim: Animation,
     private val landscapeAnim: Animation,

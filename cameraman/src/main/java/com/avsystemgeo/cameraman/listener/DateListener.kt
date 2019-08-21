@@ -5,7 +5,7 @@ package com.avsystemgeo.cameraman.listener
  * @since 25/06/2019 11:37
  */
 
-interface DateListener {
+internal interface DateListener {
 
     fun onDateChanged(date: String)
 }

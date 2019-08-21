@@ -18,11 +18,11 @@ import io.fotoapparat.result.BitmapPhoto
  * @since 21/06/2019 13:38
  */
 
-fun Bitmap.saveBitmapToJPEG(file: File, jpegQuality: Int): Boolean {
+internal fun Bitmap.saveBitmapToJPEG(file: File, jpegQuality: Int): Boolean {
     return compress(Bitmap.CompressFormat.JPEG, jpegQuality, FileOutputStream(file))
 }
 
-fun Bitmap.rotateBitmap(rotationDegrees: Float): Bitmap {
+internal fun Bitmap.rotateBitmap(rotationDegrees: Float): Bitmap {
     val matrix = Matrix()
 
     matrix.postRotate(rotationDegrees)
@@ -30,7 +30,7 @@ fun Bitmap.rotateBitmap(rotationDegrees: Float): Bitmap {
     return Bitmap.createBitmap(this, 0, 0, this.width, this.height, matrix, true)
 }
 
-fun BitmapPhoto.optimizeBitmap(context: Context): Bitmap? {
+internal fun BitmapPhoto.optimizeBitmap(context: Context): Bitmap? {
     var tempFile: File? = null
 
     try {

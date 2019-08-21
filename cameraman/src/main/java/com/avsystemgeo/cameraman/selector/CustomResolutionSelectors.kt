@@ -17,7 +17,7 @@ enum class ResolutionQuality {
     SAD
 }
 
-fun resolutionSelector(quality: ResolutionQuality): ResolutionSelector {
+internal fun resolutionSelector(quality: ResolutionQuality): ResolutionSelector {
     return when (quality) {
         ResolutionQuality.BEST -> highestResolution()
         ResolutionQuality.HIGH -> highResolution()

@@ -47,7 +47,7 @@ import kotlinx.android.synthetic.main.content_camera_preview.*
  * @since 11/06/2019 16:36
  */
 
-class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener, GeolocationListener, DateListener {
+internal class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener, GeolocationListener, DateListener {
 
     companion object {
         private val PERMISSIONS = arrayListOf(

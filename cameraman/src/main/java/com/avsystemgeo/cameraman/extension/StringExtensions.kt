@@ -10,22 +10,22 @@ import java.text.SimpleDateFormat
  * @since 14/06/2019 10:45
  */
 
-fun String.fileExists(): Boolean {
+internal fun String.fileExists(): Boolean {
     return File(this).exists()
 }
 
-fun String.mkdirs(): Boolean {
+internal fun String.mkdirs(): Boolean {
     return File(this).mkdirs()
 }
 
-fun String.saveFileWithTimestamp(suffix: String): File {
+internal fun String.saveFileWithTimestamp(suffix: String): File {
     return File(
         this,
         String.format("%s$suffix", SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault()).format(Date()))
     )
 }
 
-fun Collection<String>.maximumLenghtString(): String {
+internal fun Collection<String>.maximumLenghtString(): String {
     var string = ""
 
     this
@@ -36,6 +36,6 @@ fun Collection<String>.maximumLenghtString(): String {
     return string
 }
 
-fun dateFormatNow(pattern: String): String {
+internal fun dateFormatNow(pattern: String): String {
     return SimpleDateFormat(pattern, Locale.getDefault()).format(Date())
 }

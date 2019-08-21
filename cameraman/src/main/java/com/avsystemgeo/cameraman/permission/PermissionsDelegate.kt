@@ -9,7 +9,7 @@ import android.content.pm.PackageManager
  * @since 12/06/2019 12:23
  */
 
-class PermissionsDelegate(private var activity: Activity, private val REQUEST_PERMISSIONS: List<String>) {
+internal class PermissionsDelegate(private var activity: Activity, private val REQUEST_PERMISSIONS: List<String>) {
 
     companion object {
         private const val REQUEST_CODE = 10

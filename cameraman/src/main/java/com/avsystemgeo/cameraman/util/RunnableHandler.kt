@@ -9,7 +9,7 @@ import kotlinx.coroutines.Runnable
  * @since 25/06/2019 14:36
  */
 
-class RunnableHandler(private var method: () -> Unit, var interval: Long = 0) {
+internal class RunnableHandler(private var method: () -> Unit, var interval: Long = 0) {
 
     // Uuu boi
     private var killMinus9: Boolean = false

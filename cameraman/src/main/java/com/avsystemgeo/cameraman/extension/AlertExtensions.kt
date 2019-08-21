@@ -11,15 +11,15 @@ import com.google.android.material.snackbar.Snackbar
  * @since 14/06/2019 12:14
  */
 
-fun Context.toast(message: String) {
+internal fun Context.toast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
 
-fun View.snackbar(message: String) {
+internal fun View.snackbar(message: String) {
     Snackbar.make(this, message, Snackbar.LENGTH_LONG).show()
 }
 
-fun createDialog(
+internal fun createDialog(
     context: Context,
     view: Int,
     title: String? = null,

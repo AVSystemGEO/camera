@@ -5,7 +5,7 @@ package com.avsystemgeo.cameraman.geo.converter
  * @since 18/06/2019 12:27
  */
 
-class LatLon2UTM {
+internal class LatLon2UTM {
 
     companion object {
 

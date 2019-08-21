@@ -16,7 +16,7 @@ import com.avsystemgeo.cameraman.extension.maximumLenghtString
  * @since 21/06/2019 12:04
  */
 
-class Coordinator {
+internal class Coordinator {
 
     companion object {
         private const val DEFAULT_MARGIN = 10f

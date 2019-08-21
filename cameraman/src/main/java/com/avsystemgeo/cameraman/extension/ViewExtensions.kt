@@ -8,13 +8,13 @@ import android.widget.TextView
  * @since 14/06/2019 11:55
  */
 
-fun View.visible(visible: Boolean) {
+internal fun View.visible(visible: Boolean) {
     when (visible) {
         true -> this.visibility = View.VISIBLE
         false -> this.visibility = View.GONE
     }
 }
 
-fun TextView.toText(): String? {
+internal fun TextView.toText(): String? {
     return this.text.toString()
 }
