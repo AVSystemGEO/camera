@@ -45,7 +45,7 @@ internal class GalleryAdapter(
 
             holder.itemView.setOnClickListener { onItemClick(position) }
 
-            holder.itemView.txtDescription.text = foto.description
+            holder.itemView.txtDescription.text = foto.description.orEmpty()
         } else {
             holder.itemView.setOnClickListener {
                 context.toast(context.getString(R.string.camera_gallery_picture_not_found))

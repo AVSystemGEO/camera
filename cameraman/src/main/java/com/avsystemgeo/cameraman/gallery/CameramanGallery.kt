@@ -1,26 +1,25 @@
 package com.avsystemgeo.cameraman.gallery
 
-import java.io.Serializable
-
-import android.os.Bundle
-
-import com.avsystemgeo.cameraman.Cameraman
-import com.avsystemgeo.cameraman.model.CameramanPicture
+import com.avsystemgeo.cameraman.listener.CameramanGalleryListener
 
 /**
  * @author Lucas Cota
  * @since 23/08/2019 10:37
  */
 
-class CameramanGallery(private var pictures: List<CameramanPicture>) {
+class CameramanGallery {
 
-    fun build(): FragmentGallery {
-        val fragment = FragmentGallery()
+    companion object {
+        private var listener: CameramanGalleryListener? = null
 
-        fragment.arguments = Bundle().apply {
-            putSerializable(Cameraman.PICTURES, pictures as Serializable)
+        internal fun getListener(): CameramanGalleryListener? {
+            return listener
         }
+    }
 
-        return fragment
+    fun build(listener: CameramanGalleryListener): FragmentGallery {
+        CameramanGallery.listener = listener
+
+        return FragmentGallery()
     }
 }

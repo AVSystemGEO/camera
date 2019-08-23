@@ -21,7 +21,7 @@ class Cameraman(private var context: Context, private var settings: CameramanSet
 
         private var callback: CameramanCallback? = null
 
-        fun getCallback(): CameramanCallback? {
+        internal fun getCallback(): CameramanCallback? {
             return callback
         }
     }

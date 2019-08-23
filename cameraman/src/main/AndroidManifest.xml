@@ -14,5 +14,7 @@
         <activity
             android:name=".view.CameraActivity"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".gallery.ImageViewerActivity" />
     </application>
 </manifest>
