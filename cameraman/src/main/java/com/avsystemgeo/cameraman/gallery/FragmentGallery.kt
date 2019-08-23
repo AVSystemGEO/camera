@@ -53,7 +53,7 @@ class FragmentGallery : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        pictures = listener?.onGallerySetupRecycler()!!
+        pictures = if (listener != null) listener?.onGallerySetupRecycler()!! else emptyList()
 
         setupRecycler()
     }
