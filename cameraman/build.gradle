@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -39,6 +40,12 @@ dependencies {
 
     // Camera
     implementation 'io.fotoapparat:fotoapparat:2.7.0'
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.9.0") {
+        exclude group: "com.android.support"
+    }
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
     // RotateLayout
     implementation 'rongi.rotate-layout:rotate-layout:3.0.0'

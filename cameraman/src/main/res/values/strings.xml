@@ -19,4 +19,8 @@
     <string name="camera_date">"Date: "</string>
     <string name="camera_loading_coordinates">Searching coordinates…</string>
     <string name="camera_wait_coordinates">Please wait for the coordinates to be found. You must have GPS enabled for this.</string>
+    <string name="camera_gallery_title">Gallery</string>
+    <string name="camera_gallery_no_pictures">Man, there\'s no pictures to be viewed here!</string>
+    <string name="camera_gallery_imageview_content">Image taken by user.</string>
+    <string name="camera_gallery_picture_not_found">The picture has not be found in device storage.</string>
 </resources>

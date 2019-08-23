@@ -16,6 +16,8 @@ class Cameraman(private var context: Context, private var settings: CameramanSet
 
     companion object {
         const val CAMERA_SETTINGS = "CAMERA_SETTINGS"
+        const val POSITION = "POSITION"
+        const val PICTURES = "PICTURES"
 
         private var callback: CameramanCallback? = null
 
