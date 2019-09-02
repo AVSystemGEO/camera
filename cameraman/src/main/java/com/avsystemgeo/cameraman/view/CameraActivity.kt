@@ -311,7 +311,7 @@ internal class CameraActivity : AppCompatActivity(), OrientationListener.Rotatio
                     flashMode = when {
                         isFlash -> {
                             flashSwitch.setImageResource(R.drawable.ic_flash_on)
-                            on()
+                            firstAvailable(on(), off())
                         }
 
                         else -> {
