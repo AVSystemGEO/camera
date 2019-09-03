@@ -2,6 +2,7 @@ package com.avsystemgeo.cameraman.model
 
 import java.io.Serializable
 
+import com.avsystemgeo.cameraman.selector.CoordinateType
 import com.avsystemgeo.cameraman.selector.ResolutionQuality
 
 /**
@@ -16,6 +17,7 @@ data class CameramanSettings(
     var enableFocusView: Boolean = false,
     var enableCoordinates: Boolean = false,
     var enableAutoCoordinatesInDebugMode: Boolean = false,
+    var coordinateType: CoordinateType = CoordinateType.UTM,
     var enableDescription: Boolean = false,
     var datePattern: String,
     var descriptionPrefix: String = ""

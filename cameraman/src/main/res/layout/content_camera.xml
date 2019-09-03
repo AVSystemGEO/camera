@@ -56,7 +56,7 @@
             android:background="@color/camera_coordinates_background"
             android:padding="@dimen/camera_margin_padding">
 
-            <TableRow>
+            <TableRow android:id="@+id/rowUtm">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -79,6 +79,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/titleUtmX"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/camera_utm_x"
@@ -100,6 +101,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/titleUtmY"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/camera_utm_y"

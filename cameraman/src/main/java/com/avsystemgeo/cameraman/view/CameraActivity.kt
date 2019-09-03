@@ -30,6 +30,7 @@ import com.avsystemgeo.cameraman.model.CameramanOutput
 import com.avsystemgeo.cameraman.extension.createDialog
 import com.avsystemgeo.cameraman.model.CameramanSettings
 import com.avsystemgeo.cameraman.bitmap.saveBitmapToJPEG
+import com.avsystemgeo.cameraman.selector.CoordinateType
 import com.avsystemgeo.cameraman.listener.CameramanCallback
 import com.avsystemgeo.cameraman.geo.model.GeolocationOutput
 import com.avsystemgeo.cameraman.selector.resolutionSelector
@@ -47,7 +48,8 @@ import kotlinx.android.synthetic.main.content_camera_preview.*
  * @since 11/06/2019 16:36
  */
 
-internal class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener, GeolocationListener, DateListener {
+internal class CameraActivity : AppCompatActivity(), OrientationListener.RotationListener, GeolocationListener,
+    DateListener {
 
     companion object {
         private val PERMISSIONS = arrayListOf(
@@ -216,9 +218,19 @@ internal class CameraActivity : AppCompatActivity(), OrientationListener.Rotatio
 
         locationOutput = output
 
-        txtUtm.text = locationOutput?.utm
-        txtUtmX.text = locationOutput?.utmX
-        txtUtmY.text = locationOutput?.utmY
+        when (settings.coordinateType) {
+
+            CoordinateType.UTM -> {
+                txtUtm.text = locationOutput?.utm
+                txtUtmX.text = locationOutput?.utmX
+                txtUtmY.text = locationOutput?.utmY
+            }
+
+            CoordinateType.LAT_LNG -> {
+                txtUtmX.text = locationOutput?.latitude.toString()
+                txtUtmY.text = locationOutput?.longitude.toString()
+            }
+        }
     }
 
 
@@ -254,6 +266,14 @@ internal class CameraActivity : AppCompatActivity(), OrientationListener.Rotatio
         )
 
         if (settings.enableCoordinates) {
+
+            if (settings.coordinateType == CoordinateType.LAT_LNG) {
+                rowUtm.visible(false)
+
+                titleUtmX.text = getString(R.string.camera_latitude)
+                titleUtmY.text = getString(R.string.camera_longitude)
+            }
+
             geolocation = Geolocation(this, this)
         }
 
@@ -353,7 +373,8 @@ internal class CameraActivity : AppCompatActivity(), OrientationListener.Rotatio
                             this@CameraActivity,
                             newBitmap,
                             locationOutput!!,
-                            dateOutput
+                            dateOutput,
+                            settings.coordinateType
                         )
 
                         else -> newBitmap

@@ -5,9 +5,11 @@ import android.graphics.Paint
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.content.Context
+
 import androidx.core.content.res.ResourcesCompat
 
 import com.avsystemgeo.cameraman.R
+import com.avsystemgeo.cameraman.selector.CoordinateType
 import com.avsystemgeo.cameraman.geo.model.GeolocationOutput
 import com.avsystemgeo.cameraman.extension.maximumLenghtString
 
@@ -24,13 +26,13 @@ internal class Coordinator {
         private const val DEFAULT_TEXT_SIZE = 50f
 
         fun plotCoordinatesIntoBitmap(
-            context: Context, bitmap: Bitmap, locationOutput: GeolocationOutput, date: String
+            context: Context, bitmap: Bitmap, locationOutput: GeolocationOutput, date: String, type: CoordinateType
         ): Bitmap {
 
             // Resources
             val paint = Paint()
             val canvas = Canvas(bitmap)
-            val plotStringArray = locationOutput.toPlotString(context, date).split("\n")
+            val plotStringArray = locationOutput.toPlotString(context, date, type).split("\n")
 
 
             // Bitmap

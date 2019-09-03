@@ -13,6 +13,8 @@
     <string name="camera_cancel">Cancel</string>
     <string name="camera_no_switch_available">The device not have other cameras!</string>
     <string name="camera_no_flash_available">The device not have flash modes!</string>
+    <string name="camera_latitude" translatable="false">"Latitude: "</string>
+    <string name="camera_longitude" translatable="false">"Longitude: "</string>
     <string name="camera_utm">"Spindle: "</string>
     <string name="camera_utm_x">"West: "</string>
     <string name="camera_utm_y">"North: "</string>

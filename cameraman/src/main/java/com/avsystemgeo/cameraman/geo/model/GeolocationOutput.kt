@@ -5,6 +5,7 @@ import java.io.Serializable
 import android.content.Context
 
 import com.avsystemgeo.cameraman.R
+import com.avsystemgeo.cameraman.selector.CoordinateType
 
 /**
  * @author Lucas Cota
@@ -19,10 +20,17 @@ data class GeolocationOutput(
     var utmY: String
 ) : Serializable {
 
-    fun toPlotString(context: Context, date: String): String {
-        return "${context.getString(R.string.camera_utm)}$utm\n" +
-                "${context.getString(R.string.camera_utm_x)}$utmX\n" +
-                "${context.getString(R.string.camera_utm_y)}$utmY\n" +
-                "${context.getString(R.string.camera_date)}$date"
+    fun toPlotString(context: Context, date: String, type: CoordinateType): String {
+        return when (type) {
+
+            CoordinateType.UTM -> "${context.getString(R.string.camera_utm)}$utm\n" +
+                    "${context.getString(R.string.camera_utm_x)}$utmX\n" +
+                    "${context.getString(R.string.camera_utm_y)}$utmY\n" +
+                    "${context.getString(R.string.camera_date)}$date"
+
+            CoordinateType.LAT_LNG -> "${context.getString(R.string.camera_latitude)}$latitude\n" +
+                    "${context.getString(R.string.camera_longitude)}$longitude\n" +
+                    "${context.getString(R.string.camera_date)}$date"
+        }
     }
 }
