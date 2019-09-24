@@ -250,7 +250,7 @@ internal class CameraActivity : AppCompatActivity(), OrientationListener.Rotatio
     }
 
     private fun configureCamera() {
-        callback = Cameraman.stayNight()!!
+        callback = Cameraman.getCallback()!!
 
         configuration = CameraConfiguration(
             flashMode = off(),

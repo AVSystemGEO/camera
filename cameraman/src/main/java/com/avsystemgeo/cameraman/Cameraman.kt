@@ -19,9 +19,9 @@ class Cameraman(private var context: Context, private var settings: CameramanSet
         const val POSITION = "POSITION"
         const val PICTURES = "PICTURES"
 
-        internal var callback: CameramanCallback? = null
+        private var callback: CameramanCallback? = null
 
-        internal fun stayNight(): CameramanCallback? {
+        internal fun getCallback(): CameramanCallback? {
             return callback
         }
     }
