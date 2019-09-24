@@ -29,6 +29,10 @@ internal class Geolocation(context: Context, private var listener: GeolocationLi
         context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
     }
 
+    private val latLon2UTM: LatLon2UTM by lazy {
+        LatLon2UTM()
+    }
+
     fun requestLocationUpdates(autoCoordinatesInDebugMode: Boolean) {
         if (BuildConfig.DEBUG && autoCoordinatesInDebugMode) {
             listener.onLocationChanged(
@@ -55,9 +59,9 @@ internal class Geolocation(context: Context, private var listener: GeolocationLi
                 GeolocationOutput(
                     location.latitude,
                     location.longitude,
-                    LatLon2UTM.convertLatLonToUTM(location.latitude, location.longitude),
-                    LatLon2UTM.convertLatToUTM(location.latitude, location.longitude),
-                    LatLon2UTM.convertLonToUTM(location.latitude, location.longitude)
+                    latLon2UTM.convertLatLonToUTM(location.latitude, location.longitude),
+                    latLon2UTM.convertLatToUTM(location.latitude, location.longitude),
+                    latLon2UTM.convertLonToUTM(location.latitude, location.longitude)
                 )
             )
         }
