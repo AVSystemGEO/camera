@@ -14,7 +14,7 @@ data class CameramanSettings(
     var savePath: String,
     var resolutionSelector: ResolutionQuality = ResolutionQuality.MEDIUM,
     var jpegQuality: Int = 90,
-    var enableFocusView: Boolean = false,
+    var enableFocusView: Boolean = true,
     var enableCoordinates: Boolean = false,
     var enableAutoCoordinatesInDebugMode: Boolean = false,
     var coordinateType: CoordinateType = CoordinateType.UTM,
